@@ -1,0 +1,21 @@
+spring.application.name: ecommerce
+
+server.port: 8081
+
+management.server.port: 8082
+
+spring.data.cassandra:
+  keyspace-name: ecommerce
+  username: IDPveRkqONdYPrEvPRvPjLpH
+  password: F_MGvjzLBEc8lLag+74maycfMUPdsEaDBkQ_yoD5Ze4eD9jAZmwKBs_pPaboZg3dN84-2ZaP3pw5z8HDvvsS1dHRSaJD6Df.q.-Hc1ELPMDL1t3.FhcvZid-F7O,CO3D
+  # Create the schema on the fly if it doesn't exist
+  schema-action: CREATE_IF_NOT_EXISTS
+  # Increase timeouts when connecting to Astra from a dev workstation
+  request:
+    timeout: 10s
+  connection:
+    connect-timeout: 10s
+    init-query-timeout: 10s
+
+datastax.astra:
+  secure-connect-bundle: ./secure-connect-build-a-thon2.zip
