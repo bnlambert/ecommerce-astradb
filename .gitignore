@@ -1,5 +1,6 @@
 HELP.md
 target/
+!clientapp/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
@@ -35,4 +36,3 @@ build/
 ### custom
 src/main/resources/secure-connect-build-a-thon2.zip
 src/main/resources/static/
-!client/
