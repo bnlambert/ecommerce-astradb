@@ -1,0 +1,47 @@
+<mat-card class="login-card">
+  <div class="title">
+    <div><h1>Sign In</h1></div>
+     
+  </div>
+  
+    <div class="inner-card">
+      <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+        
+        <p>
+          <mat-form-field appearance="fill">
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="Placeholder" formControlName="username" required>
+            <mat-icon matSuffix>perm_identity</mat-icon>
+          </mat-form-field>
+        </p>
+
+        <p>
+          <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" placeholder="Placeholder" formControlName="password" required>
+            <mat-icon matSuffix>vpn_key</mat-icon>
+          </mat-form-field>
+        </p>
+
+        <p>
+          <mat-checkbox formControlName="rememberMe">Remember me</mat-checkbox>
+        </p>
+
+        <p>
+          <button class="form-button" mat-button color="primary" type="submit" [disabled]="!authForm.valid || _isLoading">
+            <mat-spinner
+              *ngIf="_isLoading"
+              [diameter]="20"></mat-spinner>
+              <span
+              *ngIf="!_isLoading">Sign In</span>
+          </button>
+        </p>
+      </form>
+    </div>
+    <!-- <p>
+       <a routerLink="/auth/forgot-password">Forgot password</a>
+    </p> -->
+    <p>
+      Don't have an account? <a routerLink="/auth/signup">Sign Up</a>
+    </p>
+</mat-card>
