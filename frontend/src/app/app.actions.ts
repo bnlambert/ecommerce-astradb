@@ -2,8 +2,8 @@ import { createAction, props } from '@ngrx/store';
 
 
 export interface User {
-  ID: number;
-  firstName: string;
+  userUuid: null | string;
+  firstName: null | string;
   lastName: string;
   gender: string;
   country: string;

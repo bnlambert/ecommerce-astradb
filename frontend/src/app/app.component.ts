@@ -37,14 +37,14 @@ export class AppComponent {
   ) {
     this.app$ = this.store.pipe(select('app'));
     let url = this.location.path();
-    this.app$.subscribe(
-      res =>  {
+    this.app$.subscribe({
+      next: res =>  {
         this.user = res.user
       }
-    )
+    });
 
     if (!url.includes('/auth')) {
-      if (this.user.ID == 0) {
+      if (!this.user.firstName) {
         this.checkAuth();
       } 
       
@@ -75,26 +75,26 @@ export class AppComponent {
 
   checkAuth() {
     const token = this.cookieService.get('token');
-     /*
+     
     this.authService.me({token})
-          .subscribe(
-            res => {
+          .subscribe({
+            next: res => {
               console.log({res})
-              const { user } = res;
-              this.store.dispatch(setUser({ user }))
+              
+              this.store.dispatch(setUser({ user: res }))
               this.store.dispatch(setIsLoggedIn({ isLoggedIn: true }))
             },
-            err => {
+            error: err => {
               console.log(err);
             }
-          );
+          });
 
    
     this.app$.subscribe(data => {
       
       
     });
-    */
+    
   }
 
 }

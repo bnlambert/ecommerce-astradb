@@ -13,8 +13,8 @@ export const initialState: AppState = {
   isLoggedIn: false,
   redirectUrl: '',
   user: {
-    ID: 0,
-    firstName: '',
+    userUuid: '',
+    firstName: null,
     lastName: '',
     gender: '',
     country: '',

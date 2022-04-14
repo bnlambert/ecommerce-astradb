@@ -25,7 +25,7 @@ import { AppState } from '../../../app.reducer';
           </mat-panel-description>
         </mat-expansion-panel-header>
           <app-dashboard-personal-info
-            *ngIf="user.ID > 0"
+            
             [user]="user"
             [isLoading]="isLoading"
             (onAction)="handleOnAction($event)"></app-dashboard-personal-info>

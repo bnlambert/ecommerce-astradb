@@ -10,8 +10,7 @@ import {  Router } from '@angular/router';
       We are excited to have you on board.
     </p>
     <div class="welcome-steps">
-       <div (click)="handleClick('profile')">Please tell us more about yourself
-         <mat-icon aria-hidden="false" aria-label="Example home icon">arrow_forward</mat-icon></div>
+       <div >Dashboard for BI here
        <!-- <div (click)="handleClick('verify')">Take your account verification to the next level 
           <mat-icon aria-hidden="false" aria-label="Example home icon">arrow_forward</mat-icon></div> -->
     </div>

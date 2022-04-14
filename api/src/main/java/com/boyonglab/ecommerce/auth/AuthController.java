@@ -3,14 +3,22 @@ package com.boyonglab.ecommerce.auth;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.UUID;
+
+import com.boyonglab.ecommerce.profile.*;
 
 @RestController
 public class AuthController {
 
 	@Autowired
     private UserRepository userRepository;
+
+	@Autowired
+    private ProfileRepository profileRepository;
 
 	@PostMapping("/api/auth/signup")
 	public ResponseEntity<?> createUser(@RequestBody SignupDao userInfo) {
@@ -40,11 +48,19 @@ public class AuthController {
     }
 
 	@PostMapping("/api/auth/me")
-	public  User me() {
-
-		// return new TokenDao("fdfdfsdfdfsdf");
-        User user =  userRepository.findByKeyEmail("test1@test.com");
+	public  ResponseEntity<?> me(@CookieValue(name = "token") UUID token) {
+        User user =  userRepository.findByKeyEmail("test@test.com");
 		
-		return user;
+		return ResponseEntity.status(201).body(user);
+
+		/*
+        Profile profile =  profileRepository.findByKeyUserUuid(token);
+
+		if(profile != null) {
+			return ResponseEntity.status(201).body(profile);
+		}
+
+		return ResponseEntity.status(401).body("Auth failed");	
+		*/
     }
 }
