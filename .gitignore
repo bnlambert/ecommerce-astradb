@@ -34,3 +34,5 @@ build/
 
 ### custom
 src/main/resources/secure-connect-build-a-thon2.zip
+src/main/resources/static/
+!client/
